@@ -190,7 +190,7 @@ const personGenerator = {
         this.person.firstName = this.randomFirstName(this.person.gender);
         this.person.middleName = this.randomMiddleName(this.person.gender);
         this.person.Surname = this.randomSurname(this.person.gender);
-        this.person.birthYear = this.randomIntNumber(2021, 1903) + 'года'; // учитывая возраст Канэ Танака
+        this.person.birthYear = this.randomIntNumber(2021, 1903) + ' года'; // учитывая возраст Канэ Танака
         this.person.birthDayMonth = this.randomMonth();
         this.person.profession = this.randomProfession(this.person.gender);
         return this.person;
