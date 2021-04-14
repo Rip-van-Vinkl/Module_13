@@ -14,25 +14,47 @@
         <div class="col col-md-6 offset-md-3">
             <div class="card text-center">
                 <div class="card-header">
-                    <p class="m-0">Окно результатов генерации</p>
+                    <h3 class="m-0">Окно результатов генерации</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h3 class="card-title">Фамилия: <span id="surnameOutput">Генерация фамилии</span></h3>
-                            <h4>Имя: <span id="firstNameOutput">Иван</span></h4>
-                            <h4>Отчество: <span id="middleNameOutput">Иванович</span></h4>
+                        <div class="col">
+
+                            <table border="1" width="100%" cellpadding="5">
+                                <tr>
+                                 <td width="50%">Фамилия:</td>
+                                 <th width="50%"><span id="surnameOutput">Генерация фамилии</span></th>
+                                </tr>
+                                <tr>
+                                 <td>Имя:</td>
+                                 <th><span id="firstNameOutput">Иван</span></th>
+                                </tr>
+                                <tr>
+                                <td>Отчество:</td>
+                                <th><span id="middleNameOutput">Иванович</span></th>
+                                 </tr>
+                                <tr>
+                                <td>Пол:</td>
+                                <th><span id="genderOutput">Генерация пола</span></th>
+                                </tr>
+                                <tr>
+                                <td>Дата рождения:</td>
+                                <th><span id="dayMonthOutput">Генерация дня и месяца рождения</span>
+                                    <span id="birthYearOutput">Генерация года рождения</span></th>
+                                </tr>
+                                <tr>
+                               <td>Профессия:</td>
+                               <th><span id="professionOutput">Генерация профессии</span></th>
+                              </tr>
+                            </table>
                             <br>
-                            <p>
-                                Пол: <span id="genderOutput">Генерация пола</span>
-                            </p>
-                            <p>
-                                Дата рождения: <span id="dayMonthOutput">Генерация дня и месяца рождения</span>
-                                <span id="birthYearOutput">Генерация года рождения</span> года
-                            </p>
-                            <p>
-                                Профессия: <span id="professionOutput">Генерация профессии</span>
-                            </p>
+                            <button id="start" title="Нажми, чтобы запустить генератор">
+                                Сгенерировать
+                            </button>
+                            <button id="clear" title="Нажми, чтобы стереть данные">
+                                Очистить
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -40,7 +62,7 @@
         </div>
     </div>
 </div>
-<script src="personGenerator.js"></script>
 <script src="init.js"></script>
+<script src="personGenerator.js"></script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-
-window.onload = function()
-{
+window.onload = function() {
     const initPerson = personGenerator.getPerson();
     document.getElementById('firstNameOutput').innerText = initPerson.firstName;
     document.getElementById('middleNameOutput').innerText = initPerson.middleName;
@@ -10,3 +8,19 @@ window.onload = function()
     document.getElementById('dayMonthOutput').innerText = initPerson.birthDayMonth;
     document.getElementById('professionOutput').innerText = initPerson.profession;
 };
+  
+  document.querySelector('#start').onclick = function() {
+    window.onload ();
+  }
+
+
+  document.querySelector('#clear').onclick = function() {
+    document.getElementById('firstNameOutput').innerText = "";
+    document.getElementById('middleNameOutput').innerText = "";
+    document.getElementById('surnameOutput').innerText = "";
+    document.getElementById('genderOutput').innerText = "";
+    document.getElementById('birthYearOutput').innerText = "";
+    document.getElementById('dayMonthOutput').innerText = "";
+    document.getElementById('professionOutput').innerText = "";
+
+  }
