@@ -125,72 +125,112 @@ const personGenerator = {
         return this.randomIntNumber(this.Day(obj.list[prop]), 1) + " " + obj.list[prop];
     },
 
+    /*
+        Day: function (month) {
+            if (month === "февраля") {
+                if (((this.person.birthYear % 4 == 0) && (this.person.birthYear % 100 != 0)) || (this.person.birthYear % 400 == 0)) {
+                    return 29
+                } else {
+                    return 28
+                }
+            } else if (month === "апреля" || "июня" || "сентября" || "ноября") {
+                return 30
+            } else {
+                return 31
+            }
+        },
+    */
     Day: function (month) {
         if (month === "февраля") {
-            if (((this.person.birthYear % 4 == 0) && (this.person.birthYear % 100 != 0)) || (this.person.birthYear % 400 == 0)) {
-                return 29
-            } else {
-                return 28
-            }
-        } else if (month === "апреля" || "июня" || "сентября" || "ноября") {
-            return 30
-        } else {
-            return 31
+            let february = (((this.person.birthYear % 4 == 0) && (this.person.birthYear % 100 != 0)) || (this.person.birthYear % 400 == 0)) ? 29 : 28;
+            return february
         }
+        let other = (month === "апреля" || "июня" || "сентября" || "ноября") ? 30 : 31;
+        return other
     },
+
 
     randomIntNumber: (max = 1, min = 0) => Math.floor(Math.random() * (max - min + 1) + min),
 
     randomValue: function (json) {
         const obj = JSON.parse(json);
-        const prop = `id_${this.randomIntNumber(obj.count, 1)}`;  // this = personGenerator
+        const prop = `id_${this.randomIntNumber(obj.count, 1)}`; // this = personGenerator
         return obj.list[prop];
     },
 
-    randomGender: function() {
+    randomGender: function () {
         return gender = this.randomIntNumber(1, 0) === 1 ? "мужской" : "женский";
     },
 
-    randomFirstName: function(gender) {
-        if (gender === "мужской") {
-            return this.randomValue(this.firstNameMaleJson);
-          } else {
-            return this.randomValue(this.firstNameFamaleJson);
-          }
+
+    /*
+        randomFirstName: function(gender) {
+            if (gender === "мужской") {
+                return this.randomValue(this.firstNameMaleJson);
+              } else {
+                return this.randomValue(this.firstNameFamaleJson);
+              }
+        },
+
+    */
+    randomFirstName: function (gender) {
+        let firstName = (gender == "мужской") ? this.randomValue(this.firstNameMaleJson) : this.randomValue(this.firstNameFamaleJson);
+        return firstName;
     },
 
-    randomMiddleName: function(gender) {
-        if (gender === "мужской") {
-            return this.randomValue(this.middleNameJson) + 'ич';
-          } else {
-            return this.randomValue(this.middleNameJson) + 'на';
-          }
+
+    /*
+        randomMiddleName: function(gender) {
+            if (gender === "мужской") {
+                return this.randomValue(this.middleNameJson) + 'ич';
+              } else {
+                return this.randomValue(this.middleNameJson) + 'на';
+              }
+        },
+    */
+    randomMiddleName: function (gender) {
+        let middleName = (gender == "мужской") ? this.randomValue(this.middleNameJson) + 'ич' : this.randomValue(this.middleNameJson) + 'на';
+        return middleName;
     },
 
-    randomSurname: function(gender) {
-        if (gender === "мужской") {
-            return this.randomValue(this.surnameJson);
-          } else {
-            return this.randomValue(this.surnameJson) + 'a';
-          }
+
+    /*
+        randomSurname: function(gender) {
+            if (gender === "мужской") {
+                return this.randomValue(this.surnameJson);
+              } else {
+                return this.randomValue(this.surnameJson) + 'a';
+              }
+        },
+    */
+    randomSurname: function (gender) {
+        let surname = (gender == "мужской") ? this.randomValue(this.surnameJson) : this.randomValue(this.surnameJson) + 'a';
+        return surname;
     },
 
-    randomProfession: function(gender) {
-        if (gender === "мужской") {
-            return this.randomValue(this.maleProfessionJson);
-          } else {
-            return this.randomValue(this.famaleProfessionJson);
-          }
+
+    /*
+        randomProfession: function(gender) {
+            if (gender === "мужской") {
+                return this.randomValue(this.maleProfessionJson);
+              } else {
+                return this.randomValue(this.famaleProfessionJson);
+              }
+        },
+    */
+    randomProfession: function (gender) {
+        let profession = (gender == "мужской") ? this.randomValue(this.maleProfessionJson) : this.randomValue(this.famaleProfessionJson);
+        return profession;
     },
 
-  
+
     getPerson: function () {
         this.person = {};
         this.person.gender = this.randomGender();
         this.person.firstName = this.randomFirstName(this.person.gender);
         this.person.middleName = this.randomMiddleName(this.person.gender);
         this.person.Surname = this.randomSurname(this.person.gender);
-        this.person.birthYear = this.randomIntNumber(2021, 1903) + 'года'; // учитывая возраст Канэ Танака
+        this.person.birthYear = this.randomIntNumber(2021, 1903) + ' года'; // учитывая возраст Канэ Танака
         this.person.birthDayMonth = this.randomMonth();
         this.person.profession = this.randomProfession(this.person.gender);
         return this.person;
